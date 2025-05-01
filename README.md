@@ -2,7 +2,7 @@
 </a> <br /> 
 <div align="center"> 
     <a href="#"> 
-        <img src="./assets/logo.svg" alt="Logo" width="80" height="80"> 
+        <img src="./assets/ubuntu.svg" alt="Logo" width="80" height="80"> 
     </a> 
     <h3 align="center">GNOME config (Ubuntu)</h3>
   <p align="center">
