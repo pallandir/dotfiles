@@ -15,6 +15,7 @@
   </p>
 </div>
 
+<img align="center" src="./assets/preview.jpg" alt="preview">
 ## About this repository
 
 This repository contains all dotfiles used to configure GNOME applications on Ubuntu. 
@@ -34,12 +35,14 @@ You may also need to restart all your apps for your theme to apply
 - Copy the content of `GTK-3.0` into ~/.config/gtk-3.0/ 
 - Copy the content of `GTK-4.0` into ~/.config/gtk-4.0/
 
-### Flatpack Themes
+### Flatpack and Shell Themes
 
 - Add `catppuccin-theme` to your ~/.theme folder. If you don't have any theme folder just create it `mkdir -p .theme` in /home/
 - run `sudo flatpak override --filesystem=$HOME/.themes` and `sudo flatpak override --env=GTK_THEME=Catppuccin-GnomeTheme`
 
-> This will apply theme for your Flatpack apps. 
+This will apply theme for your Flatpack apps. 
+
+To apply theme for your shell use [Gnome tweak](https://docs.rockylinux.org/desktop/gnome/gnome-tweaks/) and select the desired theme in appearance. For your shell background you can use the color: `202032`. 
 
 ### Extensions Manager
 
