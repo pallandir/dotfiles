@@ -55,6 +55,13 @@ The [extensions manager](https://github.com/mjakeman/extension-manager) allow yo
 - [Clipboard mananger](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) will give you access to your system clipboard content.
 - [Emoji copy](https://github.com/FelipeFTN/Emoji-Copy) will add emoji in top bar.
 
+### ZSH
+
+ZSH can replace the default shell. 
+Here are instructions to install it: [setup zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+All required plugins are listed in the `.zshrc` file. 
+Theme used is [jovial](https://github.com/zthxxx/jovial) (pretty useful for git)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
