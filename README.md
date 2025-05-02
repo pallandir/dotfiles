@@ -54,6 +54,7 @@ The [extensions manager](https://github.com/mjakeman/extension-manager) allow yo
 - [Arc Menu](https://github.com/fishears/Arc-Menu) will allow you to launch apps from your top bar.
 - [Clipboard mananger](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) will give you access to your system clipboard content.
 - [Emoji copy](https://github.com/FelipeFTN/Emoji-Copy) will add emoji in top bar.
+- [Vitals](https://github.com/corecoding/Vitals) will display system informations. 
 
 ### ZSH
 
