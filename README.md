@@ -81,5 +81,7 @@ Thanks to these great resources:
 - [Wallapapers](https://github.com/orangci/walls-catppuccin-mocha)
 - [Catppuccin](https://github.com/catppuccin)
 - [Catppuccin palette](https://catppuccin.com/palette/)
+- [ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+- [Jovial ZSH theme](https://github.com/zthxxx/jovial)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
