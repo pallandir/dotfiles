@@ -14,8 +14,10 @@
     <a href="https://github.com/pallandir/dotfiles/issues">Request Feature</a>
   </p>
 </div>
-
+<br/>
+<br/>
 <img align="center" src="./assets/preview.jpg" alt="preview">
+
 ## About this repository
 
 This repository contains all dotfiles used to configure GNOME applications on Ubuntu. 
