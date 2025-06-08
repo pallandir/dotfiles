@@ -65,7 +65,11 @@ Theme used is [jovial](https://github.com/zthxxx/jovial) (pretty useful for git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
+### Useful packages
+
+```sh
+apt install tree # to display fs in a tree view
+```
 
 ## License
 
@@ -73,7 +77,6 @@ Distributed under the `GNU General Public License v3.0` License.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 ## Acknowledgments
 
