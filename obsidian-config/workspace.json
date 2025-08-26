@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "cf671604067cdb4e",
+    "type": "split",
+    "children": [
+      {
+        "id": "e0b70d64e00b30d9",
+        "type": "tabs",
+        "dimension": 75.59429477020603,
+        "children": [
+          {
+            "id": "6c5d190e088da2d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "leetcode-internal/Notes/Two pointers.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Two pointers"
+            }
+          }
+        ]
+      },
+      {
+        "id": "22d81002c5c16b3f",
+        "type": "tabs",
+        "dimension": 24.405705229793977,
+        "children": [
+          {
+            "id": "b3c69444ccff0fc6",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "leetcode-internal/Notes/Two pointers.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.29118659801656677,
+                  "close": true
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Graph of Two pointers"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "63a0982b655bebe8",
+    "type": "split",
+    "children": [
+      {
+        "id": "9ee0bf254c7eca40",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "161d1f0cb1a271ce",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e5008524d436cec8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "6cc9ab15557681a6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 277.5078125
+  },
+  "right": {
+    "id": "a8b0219620627c45",
+    "type": "split",
+    "children": [
+      {
+        "id": "35030b2bf9940c6c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3c321beaefd0ab26",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "gen-knowledge/Mathematics/Vector and matrixes.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Vector and matrixes"
+            }
+          },
+          {
+            "id": "c17aa54199179bc9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "gen-knowledge/Mathematics/Vector and matrixes.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Vector and matrixes"
+            }
+          },
+          {
+            "id": "82edf8a4dec38541",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "acffefd0730f7f4c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "gen-knowledge/Mathematics/Vector and matrixes.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Vector and matrixes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "6c5d190e088da2d1",
+  "lastOpenFiles": [
+    "leetcode-internal/Excercies/Two_pointers/move_zeros.py~",
+    "leetcode-internal/Excercies/Two_pointers/move_zeros.py",
+    "leetcode-internal/Excercies/Two_pointers/move_zeroes.py~",
+    "leetcode-internal/Excercies/Two_pointers/move_zeroes.py",
+    "leetcode-internal/Excercies/Two_pointers/remove_duplicates.py~",
+    "leetcode-internal/Excercies/Two_pointers/remove_duplicates.py",
+    "leetcode-internal/Excercies/Two_pointers",
+    "leetcode-internal/Excercies/two_pointers.py.md",
+    "leetcode-internal/Notes/Two pointers.md",
+    "leetcode-internal/Excercies/Exercices",
+    "test.md",
+    "leetcode-internal/README.md",
+    "gen-knowledge/psychology/Cognitive psychology.md",
+    "gen-knowledge/Mathematics/Vector and matrixes.md",
+    "gen-knowledge/psychology/books/roberto_cialdini.pdf",
+    "gen-knowledge/psychology/Contrast.md",
+    "leetcode-internal/Excercies/Untitled.md",
+    "leetcode-internal/Excercies",
+    "leetcode-internal/Notes",
+    "Pasted image 20250825183136.png",
+    "data.md",
+    "Pasted image 20250810021343.png",
+    "Two_pointers.md",
+    "Two.md",
+    "Two/pointers.md",
+    "gen-knowledge/README.md",
+    "Roberto CIALDINI.md",
+    "2025-08-05.md",
+    "Welcome.md"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "baseline-style@@accented-interface": true,
+  "baseline-style@@color-scheme-dark": "mocha-dark",
+  "baseline-style@@background-contrast-dark": "contrast-dark",
+  "baseline-style@@color-scheme-light": "nord-light",
+  "baseline-style@@layout-style": "layout-cards",
+  "baseline-style@@density-modifier": 1,
+  "baseline-style@@radius-modifier": 1,
+  "baseline-style@@status-bar-style": "status-bar-compact",
+  "baseline-style@@tabs-style": "tabs-floating",
+  "baseline-style@@labeled-nav-off": false,
+  "baseline-style@@large-new-note": false,
+  "baseline-style@@rainbow-folders": true,
+  "baseline-style@@hide-help": false,
+  "baseline-style@@nav-item-active-style": "nav-item-subtle",
+  "baseline-style@@nav-item-white-space": "none",
+  "baseline-style@@window-title-off": false,
+  "baseline-style@@code-line-numbers": true,
+  "baseline-style@@sidebar-compact-actions": "compact-actions-off",
+  "baseline-style@@sidebar-compact-tabs": "compact-tabs-default",
+  "baseline-style@@sidebar-tabs-names": "tab-names-off",
+  "baseline-style@@list-spacing": 0
+}
