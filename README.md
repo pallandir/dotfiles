@@ -63,6 +63,12 @@ Theme used is [jovial](https://github.com/zthxxx/jovial) (pretty useful for git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Obsidian
+
+For note taking obsidian is a good tool that I use on a regular basis, on order to have a clean and professional interface copy the content of `obsidian-config` into your `.obsidian` directory located on your vault.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Useful packages
 
 ```sh
