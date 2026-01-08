@@ -1,10 +1,50 @@
-#!/bin/bash
+#!/bin/zsh
+
+## Preset
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color (reset)
+
+function is_homebrew_installed() {
+    if command -v brew &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function check_command_exec(){
+    if [ $? -eq 0 ];
+    then
+        echo "${GREEN}Tool installed successfully${NC}"
+    else
+        echo "${RED}Tool installation failed aborting setup.${NC}"
+    fi
+}
+
 
 ## Istall and setup Homebrew
 
+echo "${GREEN}Installing Homebrew...${NC}"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+check_command_exec
+
 ## Install and config iterm2
 
+if is_homebrew_installed; then
+    brew install --cask iterm2
+else
+    echo "${RED}❌ Homebrew is not installed aborting operation.${NC}"
+fi
+
 ## Install and setup oh-my-zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+check_command_exec
 
 ## Install and config Neovim
 
