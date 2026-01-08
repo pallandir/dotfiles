@@ -23,12 +23,26 @@ function check_command_exec(){
     fi
 }
 
+function is_tool_installed(){
+    local toolName="$1"
 
-## Istall and setup Homebrew
+    if command -v "$toolName" &> /dev/null; then
+        echo "${RED}${toolName} is already installed. Skipping...${NC}"
+        return 0
+    else
+        return 1
+    fi
+}
+
+
+## Install and setup Homebrew
 
 echo "${GREEN}Installing Homebrew...${NC}"
+TOOL="brew"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! is_tool_installed "$TOOL"; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 check_command_exec
 
