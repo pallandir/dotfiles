@@ -10,7 +10,7 @@ function check_command_exec(){
     local toolName="$1"
     if [ $? -eq 0 ];
     then
-        echo "${GREEN} ${toolName} status: [OK] ${NC}"
+        echo "${GREEN}${toolName} status: [OK] ${NC}"
     else
         echo "${RED}Tool installation failed aborting setup.${NC}"
         exit 0
@@ -21,7 +21,7 @@ function is_tool_installed(){
     local toolName="$1"
 
     if command -v "$toolName" &> /dev/null; then
-        echo "${RED}${toolName} is already installed. Skipping...${NC}"
+        echo "${RED}${toolName} is already installed.Skipping...${NC}"
         return 0
     else
         return 1
