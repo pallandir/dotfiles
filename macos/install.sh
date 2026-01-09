@@ -39,14 +39,13 @@ function git_ssh_auth_ok() {
 
 ## Prerequisites
 
-echo "\n${GREEN}Installing configuration for macOS${NC}\n"
-echo "${GREEN}Setup includes: \n - Homebrew \n - Iterm2 \n - ZSH (+ config) \n - Neovim (+ config) \n - Tmux \n - Aerospace tiling manager${NC}"
+echo "\nInstalling configuration for macOS\n"
+echo "Setup includes: \n - Homebrew \n - Iterm2 \n - ZSH (+ config) \n - Neovim (+ config) \n - Tmux \n - Aerospace tiling manager"
 if ! git_ssh_auth_ok; then
     echo "\n${RED}You need a valid GitHub SSH key in order to clone configurations.\nFind more information here: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.${NC}"
 else
-    echo "GitHub auth [OK]"
+    echo "${GREEN}GitHub auth [OK]${NC}"
 fi
-exit 0
 
 ## Install and setup Homebrew
 
