@@ -89,5 +89,7 @@ TOOL="aerospace"
 log_tool_install "$TOOL"
 if ! is_tool_installed "$TOOL"; then
     brew install --cask aerospace
+    mkdir -p ~/.config/aerospace
+    cp aerospace.toml ~/.config/aerospace/
     check_command_exec
 fi
