@@ -77,6 +77,8 @@ log_tool_install "$TOOL"
 if ! is_tool_installed "$TOOL"; then
     brew install neovim
     check_command_exec
+    echo "${GREEN}Cloning nvim config into ~/.config/nvim"
+    git clone git@github.com:pallandir/neovim.git ~/.config/nvim
 fi
 
 ## Install and setup tmux
