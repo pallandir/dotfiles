@@ -66,6 +66,8 @@ TOOL="zsh"
 log_tool_install "$TOOL"
 if ! is_tool_installed "$TOOL"; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo "${GREEN}Installing Jovial theme for zsh...${NC}"
+    curl -sSL https://github.com/zthxxx/jovial/raw/master/installer.sh | sudo -E bash -s ${USER:=`whoami`}
     check_command_exec
 fi
 
@@ -77,7 +79,7 @@ log_tool_install "$TOOL"
 if ! is_tool_installed "$TOOL"; then
     brew install neovim
     check_command_exec
-    echo "${GREEN}Cloning nvim config into ~/.config/nvim"
+    echo "${GREEN}Cloning nvim config into ~/.config/nvim${NC}"
     git clone git@github.com:pallandir/neovim.git ~/.config/nvim
 fi
 
