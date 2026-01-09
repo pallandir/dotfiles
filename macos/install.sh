@@ -20,6 +20,7 @@ function check_command_exec(){
         echo "${GREEN}Tool installed successfully${NC}"
     else
         echo "${RED}Tool installation failed aborting setup.${NC}"
+        exit 0
     fi
 }
 
@@ -34,34 +35,57 @@ function is_tool_installed(){
     fi
 }
 
+function log_tool_install(){
+    local toolName="$1"
+    echo "${GREEN}Installing ${toolName}...${NC}"
+}
+
 
 ## Install and setup Homebrew
 
-echo "${GREEN}Installing Homebrew...${NC}"
 TOOL="brew"
-
+log_tool_install "$TOOL"
 if ! is_tool_installed "$TOOL"; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    check_command_exec
 fi
 
-check_command_exec
 
 ## Install and config iterm2
 
-if is_homebrew_installed; then
+TOOL="iterm2"
+log_tool_install "$TOOL"
+if is_tool_installed "brew"; then
     brew install --cask iterm2
-else
-    echo "${RED}❌ Homebrew is not installed aborting operation.${NC}"
+    check_command_exec
 fi
 
 ## Install and setup oh-my-zsh
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+TOOL="zsh"
+log_tool_install "$TOOL"
+if ! is_tool_installed "$TOOL"; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    check_command_exec
+fi
 
-check_command_exec
 
 ## Install and config Neovim
+
+TOOL="nvim"
+log_tool_install "$TOOL"
+if ! is_tool_installed "$TOOL"; then
+    brew install neovim
+    check_command_exec
+fi
 
 ## Install and setup tmux
 
 ## Install and setup aerospace
+
+TOOL="aerospace"
+log_tool_install "$TOOL"
+if ! is_tool_installed "$TOOL"; then
+    brew install --cask aerospace
+    check_command_exec
+fi
