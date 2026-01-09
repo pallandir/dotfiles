@@ -85,6 +85,13 @@ fi
 
 ## Install and setup tmux
 
+TOOL="tmux"
+log_tool_install "$TOOL"
+if ! is_tool_installed "$TOOL"; then
+    brew install tmux
+    check_command_exec
+fi
+
 ## Install and setup aerospace
 
 TOOL="aerospace"
