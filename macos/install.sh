@@ -62,10 +62,8 @@ fi
 
 TOOL="iterm2"
 log_tool_install "$TOOL"
-if is_tool_installed "brew"; then
-    brew install --cask iterm2
-    check_command_exec "$TOOL"
-fi
+brew install --cask iterm2
+check_command_exec "$TOOL"
 
 ## Install and setup oh-my-zsh
 
