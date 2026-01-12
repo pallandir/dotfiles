@@ -37,6 +37,9 @@ function git_ssh_auth_ok() {
   ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"
 }
 
+toolsList='[{"tool": "brew", "install_command":"/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"", "dependancy":""},{"tool":"iterm2", "install_command":"brew install --cask iterm2","dependancy":"brew"},{"tool":"zsh","install_command":"sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"","dependancy":""},{"tool":"nvim","install_command":"brew install nvim", "dependancy":"brew"}, {"tool":"tmux", "install_command":"brew install tmux", "dependancy":"brew"},{"tool":"aerospace","install_command":"brew install --cask aerospace","dependancy":"brew"}]'
+
+
 ## Prerequisites
 
 echo "\nInstalling configuration for macOS\n"
@@ -49,61 +52,22 @@ fi
 
 ## Install and setup Homebrew
 
+print -r -- "$toolsList" |
+jq -c '.[]' |
+while IFS= read -r item; do
+    tool=$(jq -r '.tool' <<< "$item")
+    install_command=$(jq -r '.install_command' <<< "$item")
+    dependancy=$(jq -r '.dependancy' <<< "$item")
+    
+    if [  "$dependancy" -ne "" ]; then
+        if ! command -v "$dependancy"; then
+            echo "${RED}Dependancy: $dependancy to install tool $tool not installed. Aborting setup...${NC}"
+        fi
+    fi
+    echo "${GREEN}Installing $tool${NC}"
+    if ! command -v "$tool"; then
+        eval "$install_command"
+    fi
+done
+exit 0
 
-TOOL="brew"
-log_tool_install "$TOOL"
-if ! is_tool_installed "$TOOL"; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    check_command_exec "$TOOL"
-fi
-
-
-## Install and config iterm2
-
-TOOL="iterm2"
-log_tool_install "$TOOL"
-brew install --cask iterm2
-check_command_exec "$TOOL"
-
-## Install and setup oh-my-zsh
-
-TOOL="zsh"
-log_tool_install "$TOOL"
-if ! is_tool_installed "$TOOL"; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    echo "${GREEN}Installing Jovial theme for zsh...${NC}"
-    curl -sSL https://github.com/zthxxx/jovial/raw/master/installer.sh | sudo -E bash -s ${USER:=`whoami`}
-    check_command_exec "$TOOL"
-fi
-
-
-## Install and config Neovim
-
-TOOL="nvim"
-log_tool_install "$TOOL"
-if ! is_tool_installed "$TOOL"; then
-    brew install neovim
-    echo "${GREEN}Cloning nvim config into ~/.config/nvim${NC}"
-    git clone git@github.com:pallandir/neovim.git ~/.config/nvim
-    check_command_exec "$TOOL"
-fi
-
-## Install and setup tmux
-
-TOOL="tmux"
-log_tool_install "$TOOL"
-if ! is_tool_installed "$TOOL"; then
-    brew install tmux
-    check_command_exec "$TOOL"
-fi
-
-## Install and setup aerospace
-
-TOOL="aerospace"
-log_tool_install "$TOOL"
-if ! is_tool_installed "$TOOL"; then
-    brew install --cask aerospace
-    mkdir -p ~/.config/aerospace
-    cp aerospace.toml ~/.config/aerospace/
-    check_command_exec "$TOOL"
-fi
