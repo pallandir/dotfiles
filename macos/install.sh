@@ -6,32 +6,6 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color (reset)
 
-function check_command_exec(){
-    local toolName="$1"
-    if [ $? -eq 0 ];
-    then
-        echo "${GREEN}${toolName} status: [OK] ${NC}"
-    else
-        echo "${RED}Tool installation failed aborting setup.${NC}"
-        exit 0
-    fi
-}
-
-function is_tool_installed(){
-    local toolName="$1"
-
-    if command -v "$toolName" &> /dev/null; then
-        echo "${RED}${toolName} is already installed.Skipping...${NC}"
-        return 0
-    else
-        return 1
-    fi
-}
-
-function log_tool_install(){
-    local toolName="$1"
-    echo "${GREEN}Installing ${toolName}...${NC}"
-}
 
 function git_ssh_auth_ok() {
   ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"
@@ -59,13 +33,14 @@ while IFS= read -r item; do
     install_command=$(jq -r '.install_command' <<< "$item")
     dependancy=$(jq -r '.dependancy' <<< "$item")
     
-    if [  "$dependancy" -ne "" ]; then
+    echo "$install_command"
+    if [ -n  "$dependancy" ]; then
         if ! command -v "$dependancy"; then
             echo "${RED}Dependancy: $dependancy to install tool $tool not installed. Aborting setup...${NC}"
         fi
     fi
-    echo "${GREEN}Installing $tool${NC}"
-    if ! command -v "$tool"; then
+    if  ! command -v "$tool" &> /dev/null; then
+        echo "${GREEN}Installing $tool${NC}"
         eval "$install_command"
     fi
 done
