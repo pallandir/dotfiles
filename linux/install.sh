@@ -73,7 +73,6 @@ else
   echo "Jovial theme already present"
 fi
 
-# Write minimal ~/.zshrc with Jovial
 if ! grep -q "ZSH_THEME=\"jovial\"" "${HOME}/.zshrc" 2> /dev/null; then
   echo "Writing ~/.zshrc (with Jovial theme)..."
   cat > "${HOME}/.zshrc" <<'EOF'
@@ -96,7 +95,7 @@ fi
 # Neovim config
 # ----------------------
 echo "Installing Neovim config..."
-NVIM_CONF_REPO="git@github.com:pallandir/neovim.git"  
+NVIM_CONF_REPO="https://github.com/pallandir/neovim.git"  
 NVIM_TARGET="${HOME}/.config/nvim"
 mkdir -p "$(dirname "$NVIM_TARGET")"
 
