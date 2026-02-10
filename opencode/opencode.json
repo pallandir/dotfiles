@@ -1,0 +1,160 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "{env:OPENCODE_MODEL}",
+  "small_model": "{env:OPENCODE_SMALL_MODEL}",
+  "theme": "opencode",
+  "autoupdate": true,
+  "provider": {
+    "litellm": {
+      "name": "LiteLLM",
+      "api": "openai",
+      "env": ["LITELLM_API_KEY"],
+      "models": {
+        "{env:OPENCODE_MODEL}": {
+          "name": "Primary Model",
+          "attachment": true,
+          "limit": {
+            "context": 200000,
+            "output": 16384
+          }
+        },
+        "{env:OPENCODE_SMALL_MODEL}": {
+          "name": "Small Model",
+          "attachment": false,
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          }
+        }
+      },
+      "options": {
+        "baseURL": "{env:LITELLM_BASE_URL}"
+      }
+    }
+  },
+  "permission": {
+    "*": "ask",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "todoread": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "codesearch": "allow",
+    "lsp": "allow",
+    "question": "allow",
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git log*": "allow",
+      "git diff*": "allow",
+      "git branch*": "allow",
+      "git show*": "allow",
+      "ls *": "allow",
+      "cat *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "find *": "allow",
+      "which *": "allow",
+      "echo *": "allow",
+      "pwd": "allow",
+      "whoami": "allow",
+      "env": "allow",
+      "printenv*": "allow",
+      "docker ps*": "allow",
+      "docker images*": "allow",
+      "docker logs*": "allow",
+      "kubectl get*": "allow",
+      "kubectl describe*": "allow",
+      "npm list*": "allow",
+      "npm outdated*": "allow",
+      "pip list*": "allow",
+      "pip show*": "allow",
+      "cargo --version*": "allow",
+      "go version*": "allow",
+      "python --version*": "allow",
+      "node --version*": "allow",
+      "rm -rf *": "deny",
+      "rm -r *": "deny",
+      "sudo *": "deny",
+      "chmod 777*": "deny",
+      "> /dev/*": "deny",
+      "mkfs*": "deny",
+      "dd if=*": "deny",
+      ":(){:|:&};:": "deny",
+      "curl * | bash": "deny",
+      "wget * | bash": "deny"
+    },
+    "edit": "ask",
+    "write": "ask",
+    "patch": "ask",
+    "skill": "ask",
+    "task": "ask",
+    "todowrite": "ask",
+    "external_directory": "ask"
+  },
+  "tools": {
+    "read": true,
+    "write": true,
+    "edit": true,
+    "patch": true,
+    "bash": true,
+    "glob": true,
+    "grep": true,
+    "list": true,
+    "lsp": true,
+    "skill": true,
+    "todoread": true,
+    "todowrite": true,
+    "webfetch": true,
+    "websearch": true,
+    "question": true
+  },
+  "mcp": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"]
+    },
+    "gitlab": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gitlab"],
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "{env:GITLAB_TOKEN}",
+        "GITLAB_API_URL": "{env:GITLAB_API_URL}"
+      }
+    },
+    "figma": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@anthropic/figma-mcp-server"],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "{env:FIGMA_ACCESS_TOKEN}"
+      }
+    },
+    "eslint": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["eslint", "--mcp"]
+    },
+    "sonarqube": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e", "SONARQUBE_URL={env:SONARQUBE_URL}",
+        "-e", "SONARQUBE_TOKEN={env:SONARQUBE_TOKEN}",
+        "sonarsource/sonarqube-mcp-server:latest"
+      ]
+    },
+    "python-analyzer": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-analyzer"]
+    }
+  }
+}

@@ -1,94 +1,249 @@
-<a name="readme-top">
-</a> <br /> 
-<div align="center"> 
-    <a href="#"> 
-        <img src="./assets/ubuntu.svg" alt="Logo" width="80" height="80"> 
-    </a> 
-    <h3 align="center">GNOME config (Ubuntu)</h3>
-  <p align="center">
-    Setup GNOME theme and extensions to work on a good looking practical system.
+<a name="readme-top"></a>
+
+<div align="center">
+  <h1>Developer Dotfiles</h1>
+  <p>
+    Cross-platform development environment for Linux (Ubuntu/GNOME) and macOS.
     <br />
-    <br />
+    Includes terminal, editor, AI coding assistant, and theme configurations.
+  </p>
+  <p>
     <a href="https://github.com/pallandir/dotfiles/issues">Report Bug</a>
     ·
     <a href="https://github.com/pallandir/dotfiles/issues">Request Feature</a>
   </p>
 </div>
+
 <br/>
-<br/>
+
 <img align="center" src="./assets/preview.jpg" alt="preview">
 
-## About this project
+## Overview
 
-This project contains all dotfiles used to configure GNOME applications on Ubuntu.
-It provides themes for `GTK-3` and `GTK-4`, `Flatpack` and some 'good' extensions to install.
+This repository contains dotfiles and automated setup scripts for a complete development environment on Linux and macOS.
+
+### What's Included
+
+| Component | Linux | macOS | Description |
+|-----------|:-----:|:-----:|-------------|
+| **Neovim** | ✓ | ✓ | Modern editor with LSP, Treesitter, and Mason |
+| **Tmux** | ✓ | ✓ | Terminal multiplexer with Catppuccin theme |
+| **ZSH** | ✓ | ✓ | Oh My Zsh with Jovial theme and plugins |
+| **OpenCode** | ✓ | ✓ | AI coding assistant with specialized agents |
+| **GTK Themes** | ✓ | - | Catppuccin theme for GTK-3/GTK-4 apps |
+| **Aerospace** | - | ✓ | Tiling window manager for macOS |
+| **Obsidian** | ✓ | ✓ | Note-taking app configuration |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Getting Started
+## Project Structure
 
-> Note: For GTK-3.0 simply copy the theme folder. For GTK-4.0 copy the content of the theme folder.
-> You may also need to restart all your apps for your theme to apply
+```
+dotfiles/
+├── linux/
+│   └── install.sh          # Linux installation script
+├── macos/
+│   ├── install.sh          # macOS installation script
+│   └── aerospace.toml      # Tiling window manager config
+├── opencode/
+│   ├── opencode.json       # OpenCode AI configuration
+│   ├── agents/             # Specialized AI agents
+│   ├── install.sh          # OpenCode config installer
+│   └── README.md           # OpenCode documentation
+├── tmux/
+│   └── tmux.conf           # Tmux configuration
+├── obsidian-config/        # Obsidian vault configuration
+├── gtk-3.0/                # GTK-3 theme (Linux)
+├── gtk-4.0/                # GTK-4 theme (Linux)
+├── .themes/                # Shell themes (Linux)
+└── .zshrc                  # ZSH configuration
+```
 
-### GTK Themes
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Copy the content of `GTK-3.0` into ~/.config/gtk-3.0/
-- Copy the content of `GTK-4.0` into ~/.config/gtk-4.0/
+## Quick Start
 
-### Flatpack and Shell Themes
+### Linux (Ubuntu)
 
-- Add `catppuccin-theme` to your ~/.theme folder. If you don't have any theme folder just create it `mkdir -p .theme` in /home/
-- run `sudo flatpak override --filesystem=$HOME/.themes` and `sudo flatpak override --env=GTK_THEME=Catppuccin-GnomeTheme`
+```bash
+git clone https://github.com/pallandir/dotfiles.git
+cd dotfiles
+./linux/install.sh
+```
 
-This will apply theme for your Flatpack apps.
+The script will install and configure:
+- Base packages (git, curl, wget, build tools)
+- Neovim (latest stable) with custom config
+- Node.js, Python, Go, Rust toolchains
+- Tmux with TPM and Catppuccin theme
+- ZSH with Oh My Zsh and Jovial theme
+- OpenCode AI with specialized agents
+- GTK themes (Catppuccin)
+- Flatpak with Flathub repository
 
-To apply theme for your shell use [Gnome tweak](https://docs.rockylinux.org/desktop/gnome/gnome-tweaks/) and select the desired theme in appearance. For your shell background you can use the color: `202032`.
+### macOS
 
-### Extensions Manager
+```bash
+git clone https://github.com/pallandir/dotfiles.git
+cd dotfiles
+./macos/install.sh
+```
 
-The [extensions manager](https://github.com/mjakeman/extension-manager) allow you to install GNOME extensions for your system. Here are some that can be useful.
+The script will install and configure:
+- Homebrew package manager
+- iTerm2 terminal
+- Neovim with custom config
+- Tmux with TPM and Catppuccin theme
+- ZSH with Oh My Zsh and Jovial theme
+- OpenCode AI with specialized agents
+- Aerospace tiling window manager
 
-- [Space bar](https://github.com/christopher-l/space-bar) will allow you to define workspaces from your top bar.
-- [Arc Menu](https://github.com/fishears/Arc-Menu) will allow you to launch apps from your top bar.
-- [Clipboard mananger](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) will give you access to your system clipboard content.
-- [Emoji copy](https://github.com/FelipeFTN/Emoji-Copy) will add emoji in top bar.
-- [Vitals](https://github.com/corecoding/Vitals) will display system informations.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Post-Installation
+
+After running the install script:
+
+1. **Restart your terminal** or run `source ~/.zshrc`
+
+2. **Initialize Tmux plugins**:
+   ```bash
+   tmux
+   # Press: Ctrl+a, then I (capital i)
+   ```
+
+3. **Configure OpenCode** (edit credentials):
+   ```bash
+   nano ~/.config/opencode/.env
+   ```
+
+4. **Verify Neovim**:
+   ```bash
+   nvim
+   # Run :checkhealth
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Components
+
+### Neovim
+
+Custom configuration with:
+- LSP support via Mason (auto-installs language servers)
+- Treesitter for syntax highlighting
+- Telescope for fuzzy finding
+- Language support: Lua, Rust, Go, Python, TypeScript, Vue, and more
+
+Configuration: `~/.config/nvim/`
+
+### Tmux
+
+Features:
+- Prefix: `Ctrl+a`
+- Catppuccin Mocha theme
+- Session persistence (resurrect + continuum)
+- Vim-style pane navigation (`h/j/k/l`)
+- Quick splits: `|` (horizontal), `-` (vertical)
+- OpenCode shortcut: `prefix + o`
+
+Configuration: `~/.tmux.conf`
 
 ### ZSH
 
-ZSH can replace the default shell.
-Here are instructions to install it: [setup zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
-All required plugins are listed in the `.zshrc` file.
-Theme used is [jovial](https://github.com/zthxxx/jovial) (pretty useful for git)
+Plugins:
+- git
+- zsh-autosuggestions
+- zsh-syntax-highlighting
+- autojump
+- bgnotify
+
+Theme: [Jovial](https://github.com/zthxxx/jovial)
+
+### OpenCode AI
+
+Production-ready AI coding assistant with specialized agents:
+- **backend** - Python, FastAPI, Pydantic, PostgreSQL
+- **architect** - System design, documentation, cloud
+- **ui** - React, Vue, Next.js, TypeScript, Tailwind
+- **rust** - Rust systems programming
+- **golang** - Go backend services
+- **reviewer** - Code review
+- **security** - Security audits
+- **devops** - Docker, Kubernetes, CI/CD
+
+See [opencode/README.md](./opencode/README.md) for detailed configuration.
+
+### Aerospace (macOS only)
+
+Tiling window manager with vim-like navigation:
+- `Alt + h/j/k/l` - Focus windows
+- `Alt + Shift + h/j/k/l` - Move windows
+- `Alt + 1-9` - Switch workspaces
+- `Alt + Shift + 1-9` - Move window to workspace
+
+Configuration: `~/.config/aerospace/aerospace.toml`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Obsidian
+## GTK Themes (Linux)
 
-For note taking obsidian is a good tool that I use on a regular basis, on order to have a clean and professional interface copy the content of `obsidian-config` into your `.obsidian` directory located on your vault.
+The Catppuccin theme is applied to:
+- GTK-3.0 applications
+- GTK-4.0 applications
+- GNOME Shell
+- Flatpak applications
+
+To apply the shell theme, use [GNOME Tweaks](https://docs.rockylinux.org/desktop/gnome/gnome-tweaks/) and select the theme in Appearance.
+
+### Recommended GNOME Extensions
+
+- [Space Bar](https://github.com/christopher-l/space-bar) - Workspace indicator
+- [Arc Menu](https://github.com/fishears/Arc-Menu) - Application launcher
+- [Clipboard Indicator](https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator) - Clipboard manager
+- [Vitals](https://github.com/corecoding/Vitals) - System monitor
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Useful packages
+## Obsidian
 
-```sh
-apt install tree # to display fs in a tree view
+For note-taking, copy the Obsidian configuration to your vault:
+
+```bash
+cp -r obsidian-config/* /path/to/your/vault/.obsidian/
 ```
+
+Includes theme and plugin configurations.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Updating
+
+To update your dotfiles after pulling changes:
+
+```bash
+cd ~/path/to/dotfiles
+git pull
+
+# Re-run the install script (idempotent)
+./linux/install.sh   # or ./macos/install.sh
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
 
-Distributed under the `GNU General Public License v3.0` License.
+Distributed under the GNU General Public License v3.0.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Acknowledgments
 
-Thanks to these great resources:
-
-- [Wallapapers](https://github.com/orangci/walls-catppuccin-mocha)
-- [Catppuccin](https://github.com/catppuccin)
-- [Catppuccin palette](https://catppuccin.com/palette/)
-- [ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
-- [Jovial ZSH theme](https://github.com/zthxxx/jovial)
+- [Catppuccin](https://github.com/catppuccin) - Theme
+- [Catppuccin Wallpapers](https://github.com/orangci/walls-catppuccin-mocha)
+- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- [Jovial Theme](https://github.com/zthxxx/jovial)
+- [Aerospace](https://github.com/nikitabobko/AeroSpace)
+- [OpenCode](https://opencode.ai)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
