@@ -163,6 +163,20 @@ while IFS= read -r item; do
 done < <(print -r -- "$toolsList" | jq -c '.[]')
 
 #####################################
+# CLI tools for Neovim
+#####################################
+echo "\n▶ Installing CLI tools for Neovim"
+
+for tool in ripgrep fd fzf; do
+  if ! is_brew_pkg_installed "$tool"; then
+    echo "${GREEN}Installing $tool...${NC}"
+    run "brew install $tool"
+  else
+    echo "$tool already installed"
+  fi
+done
+
+#####################################
 # Neovim Providers (Python, Node.js, Go)
 #####################################
 echo "\n▶ Installing Neovim providers"
@@ -181,6 +195,14 @@ if ! npm list -g neovim &>/dev/null; then
   run "npm install -g neovim"
 else
   echo "Neovim npm package already installed"
+fi
+
+# tree-sitter-cli (required for nvim-treesitter)
+if ! command -v tree-sitter &>/dev/null; then
+  echo "${GREEN}Installing tree-sitter-cli...${NC}"
+  run "npm install -g tree-sitter-cli"
+else
+  echo "tree-sitter-cli already installed"
 fi
 
 # Python venv with pynvim

@@ -98,6 +98,14 @@ else
   echo "Neovim npm package already installed"
 fi
 
+# Install tree-sitter-cli (required for nvim-treesitter)
+echo "Installing tree-sitter-cli..."
+if ! command_exists tree-sitter; then
+  sudo npm install -g tree-sitter-cli
+else
+  echo "tree-sitter-cli already installed"
+fi
+
 # ----------------------
 # Python
 # ----------------------
