@@ -4,6 +4,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Theme
 ZSH_THEME="jovial"
 
+# Disable Oh My Zsh auto title (we set our own)
+DISABLE_AUTO_TITLE="true"
+
 # Plugins
 plugins=(
   git
@@ -62,6 +65,14 @@ fi
 if [[ -f "$HOME/.config/opencode/.env" ]]; then
   set -a && source "$HOME/.config/opencode/.env" && set +a
 fi
+
+# ===================
+# Terminal title
+# ===================
+set_terminal_title() {
+  print -Pn "\e]0;${PWD##*/}\a"
+}
+precmd_functions+=(set_terminal_title)
 
 # ===================
 # Completions

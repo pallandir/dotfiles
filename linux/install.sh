@@ -282,6 +282,22 @@ nvim --headless "+Lazy! sync" +qa 2>/dev/null || true
 echo "Neovim plugins synced (Mason will install LSPs on first launch)"
 
 # ----------------------
+# Display Scaling (1.5x for HiDPI)
+# ----------------------
+echo "Configuring display scaling..."
+ENVIRONMENT_D="${HOME}/.config/environment.d"
+SCALING_CONF_SRC="${SCRIPT_DIR}/display-scaling.conf"
+
+mkdir -p "$ENVIRONMENT_D"
+
+if [ -f "$SCALING_CONF_SRC" ]; then
+  cp "$SCALING_CONF_SRC" "${ENVIRONMENT_D}/display-scaling.conf"
+  echo "Display scaling configured (1.5x) - requires logout to take effect"
+else
+  echo "Warning: display-scaling.conf not found in dotfiles"
+fi
+
+# ----------------------
 # GTK themes
 # ----------------------
 echo "Installing GTK themes..."
@@ -311,8 +327,12 @@ echo ""
 echo "==> Setup complete!"
 echo ""
 echo "Next steps:"
-echo "  1. Log out and log back in (or run 'source ~/.zshrc')"
+echo "  1. Log out and log back in to apply display scaling and shell changes"
 echo "  2. Open tmux and run 'prefix + I' to install plugins"
 echo "  3. Open Neovim and wait for Mason to install LSPs/formatters"
 echo "  4. Run :checkhealth in Neovim to verify everything is working"
+echo ""
+echo "Display scaling:"
+echo "  - 1.5x scaling is configured for GTK, Qt, and Electron apps"
+echo "  - Edit ~/.config/environment.d/display-scaling.conf to adjust"
 echo ""
